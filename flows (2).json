@@ -1,0 +1,1578 @@
+[
+    {
+        "id": "4945eae89345c70e",
+        "type": "tab",
+        "label": "Ksenia WebSocket",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5b53860ef23b1b31",
+        "type": "tab",
+        "label": "STATUS",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b0209a64c2f538c1",
+        "type": "tab",
+        "label": "Parse Answer",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c79f651b11764d0a",
+        "type": "tab",
+        "label": "MANAGE",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "059019a627e13ee4",
+        "type": "tab",
+        "label": "Format Command",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "31134c4a1d40d0a9",
+        "type": "websocket-client",
+        "path": "ws://192.168.1.100:80/KseniaWsock/",
+        "tls": "",
+        "wholemsg": "false",
+        "hb": "0",
+        "subprotocol": "KS_WSOCK"
+    },
+    {
+        "id": "2b88ddfe6886b61f",
+        "type": "websocket-client",
+        "path": "ws://192.168.61.249:80/KseniaWsock/",
+        "tls": "",
+        "wholemsg": "false",
+        "hb": "0",
+        "subprotocol": "KS_WSOCK"
+    },
+    {
+        "id": "e471fd61c20d435a",
+        "type": "websocket-client",
+        "path": "ws://192.168.1.105/KseniaWsock/",
+        "tls": "",
+        "wholemsg": "false",
+        "hb": "0",
+        "subprotocol": "KS_WSOCK"
+    },
+    {
+        "id": "843040d2f4abc556",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "8802f632f2c283ca",
+        "type": "persistent values config",
+        "name": "KWS_last_CMD",
+        "values": [
+            {
+                "id": "9d14cc30-e91e-11ed-ade6-4b6b5e767ece",
+                "name": "lastCMD",
+                "datatype": "json",
+                "default": "{\"CMD\":\"\",\"CMD_DETAIL\":\"\"}",
+                "scope": "global",
+                "storage": "memory"
+            }
+        ]
+    },
+    {
+        "id": "3aa6c220704cfbec",
+        "type": "persistent values config",
+        "name": "ANSWER result",
+        "values": [
+            {
+                "id": "86950f30-2657-11ee-a962-e31b8fba907e",
+                "name": "Result",
+                "datatype": "json",
+                "default": "{\"ANSWER\":\"\"}",
+                "scope": "global",
+                "storage": "memory"
+            }
+        ]
+    },
+    {
+        "id": "ca29702cd1913b05",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "cert_export_cert1.crt",
+        "servername": "",
+        "verifyservercert": false,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "7acb36c152479f9d",
+        "type": "websocket out",
+        "z": "4945eae89345c70e",
+        "name": "WS",
+        "server": "",
+        "client": "e471fd61c20d435a",
+        "x": 350,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5f2b3dd26f645e8d",
+        "type": "websocket in",
+        "z": "4945eae89345c70e",
+        "name": "WS",
+        "server": "",
+        "client": "e471fd61c20d435a",
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "a6e74ef1dd30f8b1",
+                "6d0e50b396fc5333"
+            ]
+        ]
+    },
+    {
+        "id": "ea170572e1c0bc97",
+        "type": "inject",
+        "z": "4945eae89345c70e",
+        "name": "LOGIN USR",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "08c86da208acdbf4"
+            ]
+        ]
+    },
+    {
+        "id": "e4fb11b78d4e0474",
+        "type": "inject",
+        "z": "4945eae89345c70e",
+        "name": "LOGOUT USR",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "838d5f66e5f0a970"
+            ]
+        ]
+    },
+    {
+        "id": "139ca82992bcd36f",
+        "type": "link call",
+        "z": "4945eae89345c70e",
+        "name": "",
+        "links": [
+            "f54fb54f2cd60876"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 590,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "05e8d55b2e0f471f",
+        "type": "link in",
+        "z": "4945eae89345c70e",
+        "name": "sendCMD",
+        "links": [
+            "ee8f71301bdf10e9"
+        ],
+        "x": 225,
+        "y": 120,
+        "wires": [
+            [
+                "7acb36c152479f9d"
+            ]
+        ]
+    },
+    {
+        "id": "073f2d12a8eda4bb",
+        "type": "comment",
+        "z": "4945eae89345c70e",
+        "name": "Send Formatted CMD",
+        "info": "",
+        "x": 160,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5c5e92da89486d7d",
+        "type": "comment",
+        "z": "4945eae89345c70e",
+        "name": "Send CMD to formatting pahse",
+        "info": "",
+        "x": 190,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "08c86da208acdbf4",
+        "type": "template",
+        "z": "4945eae89345c70e",
+        "name": "Login Usr",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n  \"SENDER\":\"\",\n  \"RECEIVER\":\"\",\n  \"CMD\": \"LOGIN\",\n  \"ID\":\"65535\",\n  \"PAYLOAD_TYPE\":\"USER\",\n  \"PAYLOAD\": {\n\t  \"PIN\": \"000001\"\n  },\n  \"TIMESTAMP\":\"\",\n  \"CRC_16\":\"0x3FC7\"\n}",
+        "output": "json",
+        "x": 360,
+        "y": 360,
+        "wires": [
+            [
+                "139ca82992bcd36f"
+            ]
+        ]
+    },
+    {
+        "id": "838d5f66e5f0a970",
+        "type": "template",
+        "z": "4945eae89345c70e",
+        "name": "Logout Usr",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"SENDER\": \"\",\n    \"RECEIVER\": \"\",\n    \"CMD\": \"LOGOUT\",\n    \"ID\": \"65535\",\n    \"PAYLOAD_TYPE\": \"USER\",\n    \"PAYLOAD\": {\n        \"ID_LOGIN\": \"1\"\n    },\n    \"TIMESTAMP\": \"\",\n    \"CRC_16\": \"0x58D3\"\n}",
+        "output": "json",
+        "x": 350,
+        "y": 400,
+        "wires": [
+            [
+                "139ca82992bcd36f"
+            ]
+        ]
+    },
+    {
+        "id": "a6e74ef1dd30f8b1",
+        "type": "function",
+        "z": "4945eae89345c70e",
+        "name": "PARSE Answer",
+        "func": "const payload = JSON.parse(msg.payload).PAYLOAD;\n\n//console.log(payload);\n\nconst RESULT = payload.RESULT;\nconst RESULT_DETAIL = payload.RESULT_DETAIL;\n\ndelete payload.RESULT;\ndelete payload.RESULT_DETAIL;\n\nmsg.payload = { RESULT, RESULT_DETAIL, ANSWER: payload };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "ee82d217cdc2fe6b"
+            ]
+        ]
+    },
+    {
+        "id": "ee82d217cdc2fe6b",
+        "type": "join",
+        "z": "4945eae89345c70e",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 650,
+        "y": 180,
+        "wires": [
+            [
+                "ec13494ea7fd6938"
+            ]
+        ]
+    },
+    {
+        "id": "ec13494ea7fd6938",
+        "type": "function",
+        "z": "4945eae89345c70e",
+        "name": "JOIN",
+        "func": "const arr = msg.payload;\n\nmsg.payload = \n{ \n    RESULT: arr[0].RESULT, \n    RESULT_DETAIL: arr[0].RESULT_DETAIL,\n    ANSWER: arr[0].ANSWER,\n    CMD: arr[1].CMD,\n    CMD_DETAIL: arr[1].CMD_DETAIL,\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 180,
+        "wires": [
+            [
+                "922a29267db5fbaf"
+            ]
+        ]
+    },
+    {
+        "id": "e017e84c35823f8f",
+        "type": "function",
+        "z": "4945eae89345c70e",
+        "name": "function 1",
+        "func": "const answer = msg.payload;\nmsg.payload = false;\nif ((answer.CMD === \"CMD_ARM_PARTITION\") &&\n    (answer.RESULT === \"OK\"))\n{\n    msg.payload = true;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 360,
+        "wires": [
+            [
+                "1779b98e8a32c93b"
+            ]
+        ]
+    },
+    {
+        "id": "73679b45edeafdca",
+        "type": "debug",
+        "z": "4945eae89345c70e",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "59fc2e01b783f798",
+        "type": "debug",
+        "z": "4945eae89345c70e",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "4a233a6ba5aaf855",
+        "type": "link out",
+        "z": "4945eae89345c70e",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "2467e74456d98c57"
+        ],
+        "x": 1115,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b367186809e5bd93",
+        "type": "delay",
+        "z": "4945eae89345c70e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1000,
+        "y": 320,
+        "wires": [
+            [
+                "4a233a6ba5aaf855",
+                "73679b45edeafdca"
+            ]
+        ]
+    },
+    {
+        "id": "acd57d9a681181c2",
+        "type": "template",
+        "z": "4945eae89345c70e",
+        "name": "Login Superv",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n  \"SENDER\":\"\",\n  \"RECEIVER\":\"\",\n  \"CMD\": \"LOGIN\",\n  \"ID\":\"65535\",\n  \"PAYLOAD_TYPE\":\"IP_SUPERV\",\n  \"PAYLOAD\": {\n\t  \"PIN\": \"902001\"\n  },\n  \"TIMESTAMP\":\"\",\n  \"CRC_16\":\"0x3FC7\"\n}",
+        "output": "json",
+        "x": 350,
+        "y": 600,
+        "wires": [
+            [
+                "139ca82992bcd36f"
+            ]
+        ]
+    },
+    {
+        "id": "f3e87f07ea5d9dc0",
+        "type": "inject",
+        "z": "4945eae89345c70e",
+        "name": "LOGIN SUP",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 600,
+        "wires": [
+            [
+                "acd57d9a681181c2"
+            ]
+        ]
+    },
+    {
+        "id": "155805d839b36b3f",
+        "type": "template",
+        "z": "4945eae89345c70e",
+        "name": "Login Installer",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n  \"SENDER\":\"\",\n  \"RECEIVER\":\"\",\n  \"CMD\": \"LOGIN\",\n  \"ID\":\"65535\",\n  \"PAYLOAD_TYPE\":\"INSTALLER\",\n  \"PAYLOAD\": {\n\t  \"PIN\": \"123456\"\n  },\n  \"TIMESTAMP\":\"\",\n  \"CRC_16\":\"0x3FC7\"\n}",
+        "output": "json",
+        "x": 340,
+        "y": 480,
+        "wires": [
+            [
+                "139ca82992bcd36f"
+            ]
+        ]
+    },
+    {
+        "id": "c1807180a81782e7",
+        "type": "inject",
+        "z": "4945eae89345c70e",
+        "name": "LOGIN INST",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "155805d839b36b3f"
+            ]
+        ]
+    },
+    {
+        "id": "d053bb3392fde05d",
+        "type": "inject",
+        "z": "4945eae89345c70e",
+        "name": "LOGOUT INST",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 520,
+        "wires": [
+            [
+                "0f7e0683f35dbe88"
+            ]
+        ]
+    },
+    {
+        "id": "0f7e0683f35dbe88",
+        "type": "template",
+        "z": "4945eae89345c70e",
+        "name": "Logout Installer",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"SENDER\": \"\",\n    \"RECEIVER\": \"\",\n    \"CMD\": \"LOGOUT\",\n    \"ID\": \"65535\",\n    \"PAYLOAD_TYPE\": \"INSTALLER\",\n    \"PAYLOAD\": {\n        \"ID_LOGIN\": \"1\"\n    },\n    \"TIMESTAMP\": \"\",\n    \"CRC_16\": \"0x58D3\"\n}",
+        "output": "json",
+        "x": 340,
+        "y": 520,
+        "wires": [
+            [
+                "139ca82992bcd36f"
+            ]
+        ]
+    },
+    {
+        "id": "6d0e50b396fc5333",
+        "type": "persistent value",
+        "z": "4945eae89345c70e",
+        "name": "",
+        "valuesConfig": "8802f632f2c283ca",
+        "valuesConfigName": "KWS_last_CMD",
+        "valueId": "9d14cc30-e91e-11ed-ade6-4b6b5e767ece",
+        "value": "lastCMD",
+        "command": "read",
+        "msgProperty": "payload",
+        "dynamicControl": false,
+        "dynamicCommandMsgProperty": "",
+        "dynamicValueMsgProperty": "",
+        "deepCloneValue": false,
+        "outputPreviousValue": false,
+        "outputPreviousValueMsgProperty": "previous_value",
+        "collectValues": false,
+        "collectValuesMsgProperty": "values",
+        "blockIfEnable": false,
+        "blockIfRule": "eq",
+        "blockIfCompareValue": "",
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "ee82d217cdc2fe6b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1779b98e8a32c93b",
+        "type": "FilterUltimate",
+        "z": "4945eae89345c70e",
+        "name": "Filter",
+        "payloadPropName": "payload",
+        "x": 850,
+        "y": 360,
+        "wires": [
+            [
+                "b367186809e5bd93"
+            ],
+            [
+                "59fc2e01b783f798"
+            ]
+        ]
+    },
+    {
+        "id": "922a29267db5fbaf",
+        "type": "link out",
+        "z": "4945eae89345c70e",
+        "name": "parse ANSWER",
+        "mode": "link",
+        "links": [
+            "0ac788fba433f806"
+        ],
+        "x": 855,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f36f50d953b22a96",
+        "type": "template",
+        "z": "5b53860ef23b1b31",
+        "name": "Stato OUTPUTS",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{  \n  \"SENDER\":\"\",\n  \"RECEIVER\":\"\",\n  \"CMD\":\"READ\",  \n\t\"ID\":\"65535\",\n  \"PAYLOAD_TYPE\":\"STATUS_OUTPUTS\",\n  \"PAYLOAD\":{  \n\t\t\"ID_LOGIN\":\"1\",\n\t\t\"ID_ITEMS_RANGE\":[\"ALL\",\"ALL\"]\n  },\n  \"TIMESTAMP\":\"1219054833\",\n  \"CRC_16\":\"0x1234\"\n}",
+        "output": "json",
+        "x": 420,
+        "y": 140,
+        "wires": [
+            [
+                "575eccc1bb47bf59"
+            ]
+        ]
+    },
+    {
+        "id": "6f1bdd62e6efde97",
+        "type": "template",
+        "z": "5b53860ef23b1b31",
+        "name": "Stato ZONES",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"SENDER\": \"\",\n    \"RECEIVER\": \"\",\n    \"CMD\": \"READ\",\n    \"ID\": \"65535\",\n    \"PAYLOAD_TYPE\": \"ZONES\",\n    \"PAYLOAD\": {\n        \"ID_LOGIN\": \"1\",\n        \"ID_ITEMS_RANGE\": [\n            \"ALL\",\n            \"ALL\"\n        ]\n    },\n    \"TIMESTAMP\": \"\",\n    \"CRC_16\": \"0x1234\"\n}",
+        "output": "json",
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "575eccc1bb47bf59"
+            ]
+        ]
+    },
+    {
+        "id": "575eccc1bb47bf59",
+        "type": "link call",
+        "z": "5b53860ef23b1b31",
+        "name": "",
+        "links": [
+            "f54fb54f2cd60876"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 630,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "76c203915bf23e12",
+        "type": "inject",
+        "z": "5b53860ef23b1b31",
+        "name": "Leggi Zone ALL",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "6f1bdd62e6efde97"
+            ]
+        ]
+    },
+    {
+        "id": "2ecab642dc5e50ad",
+        "type": "inject",
+        "z": "5b53860ef23b1b31",
+        "name": "Leggi Output ALL",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "f36f50d953b22a96"
+            ]
+        ]
+    },
+    {
+        "id": "80b6a09c241a094f",
+        "type": "comment",
+        "z": "5b53860ef23b1b31",
+        "name": "Send CMD to formatting pahse",
+        "info": "",
+        "x": 190,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e2ac985f2be9da6f",
+        "type": "template",
+        "z": "5b53860ef23b1b31",
+        "name": "Stato PARTIZIONI",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n  \"SENDER\": \"\",\n  \"RECEIVER\": \"\",\n  \"CMD\": \"READ\",\n  \"ID\": \"65535\",\n  \"PAYLOAD_TYPE\": \"STATUS_PARTITIONS\",\n  \"PAYLOAD\": {\n    \"ID_LOGIN\": \"1\",\n    \"ID_ITEMS_RANGE\": [\n      \"ALL\",\n      \"ALL\"\n    ]\n  },\n  \"TIMESTAMP\": \"1219054833\",\n  \"CRC_16\": \"0x1234\"\n}",
+        "output": "json",
+        "x": 410,
+        "y": 180,
+        "wires": [
+            [
+                "575eccc1bb47bf59"
+            ]
+        ]
+    },
+    {
+        "id": "11b9e37406bc5734",
+        "type": "inject",
+        "z": "5b53860ef23b1b31",
+        "name": "Leggi Partizioni ALL",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "e2ac985f2be9da6f"
+            ]
+        ]
+    },
+    {
+        "id": "33dbd68838fad016",
+        "type": "template",
+        "z": "5b53860ef23b1b31",
+        "name": "Stato PARTIZIONE 1",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n  \"SENDER\": \"\",\n  \"RECEIVER\": \"\",\n  \"CMD\": \"READ\",\n  \"ID\": \"65535\",\n  \"PAYLOAD_TYPE\": \"STATUS_PARTITIONS\",\n  \"PAYLOAD\": {\n    \"ID_LOGIN\": \"1\",\n    \"ID_ITEMS_RANGE\": [\n      \"1\",\n      \"1\"\n    ]\n  },\n  \"TIMESTAMP\": \"1219054833\",\n  \"CRC_16\": \"0x1234\"\n}",
+        "output": "json",
+        "x": 400,
+        "y": 280,
+        "wires": [
+            [
+                "575eccc1bb47bf59"
+            ]
+        ]
+    },
+    {
+        "id": "2467e74456d98c57",
+        "type": "link in",
+        "z": "5b53860ef23b1b31",
+        "name": "Partizione 1",
+        "links": [
+            "fc22ed9b2c790170",
+            "4a233a6ba5aaf855"
+        ],
+        "x": 125,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "73b883ed48537df2",
+        "type": "inject",
+        "z": "5b53860ef23b1b31",
+        "name": "Leggi Partizione 1",
+        "props": [],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "topic": "",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "39e0020c6cbb9c2d",
+        "type": "inject",
+        "z": "5b53860ef23b1b31",
+        "name": "ARM AIBox 1",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 500,
+        "wires": [
+            [
+                "a73f79f554734d96"
+            ]
+        ]
+    },
+    {
+        "id": "a73f79f554734d96",
+        "type": "change",
+        "z": "5b53860ef23b1b31",
+        "name": "ARM 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"duration_sec\":28800,\"disarm_enabled\":false,\"alarm_in\":0,\"duration_enabled\":false}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 500,
+        "wires": [
+            [
+                "b96cab7d7a4bd554"
+            ]
+        ]
+    },
+    {
+        "id": "b96cab7d7a4bd554",
+        "type": "http request",
+        "z": "5b53860ef23b1b31",
+        "name": "POST Arm / Disarm",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://192.168.1.103:8443/api/alarm/disarm/",
+        "tls": "ca29702cd1913b05",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "application/json",
+                "valueValue": ""
+            }
+        ],
+        "x": 530,
+        "y": 540,
+        "wires": [
+            [
+                "510cae81b61f2b67"
+            ]
+        ]
+    },
+    {
+        "id": "510cae81b61f2b67",
+        "type": "debug",
+        "z": "5b53860ef23b1b31",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "bf3db4835b64de39",
+        "type": "inject",
+        "z": "5b53860ef23b1b31",
+        "name": "DISARM AIBox 1",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 120,
+        "y": 580,
+        "wires": [
+            [
+                "fc4e32a56fd4f174"
+            ]
+        ]
+    },
+    {
+        "id": "fc4e32a56fd4f174",
+        "type": "change",
+        "z": "5b53860ef23b1b31",
+        "name": "DISARM 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"duration_sec\":28800,\"disarm_enabled\":true,\"alarm_in\":0,\"duration_enabled\":false}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 580,
+        "wires": [
+            [
+                "b96cab7d7a4bd554"
+            ]
+        ]
+    },
+    {
+        "id": "98d7080441f6aaf3",
+        "type": "comment",
+        "z": "5b53860ef23b1b31",
+        "name": "ARM / DISARM AIBox partition 1",
+        "info": "",
+        "x": 170,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1e69e7d3d16df422",
+        "type": "debug",
+        "z": "b0209a64c2f538c1",
+        "name": "parsed ANSWER",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0ac788fba433f806",
+        "type": "link in",
+        "z": "b0209a64c2f538c1",
+        "name": "parseANSWER",
+        "links": [
+            "922a29267db5fbaf"
+        ],
+        "x": 175,
+        "y": 220,
+        "wires": [
+            [
+                "ce97ec527706e419",
+                "6882862750d0a43b"
+            ]
+        ]
+    },
+    {
+        "id": "415aaa698d0b4fd4",
+        "type": "link out",
+        "z": "b0209a64c2f538c1",
+        "name": "parsedANSWER",
+        "mode": "link",
+        "links": [],
+        "x": 935,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "9a6291d72d582e7a",
+        "type": "comment",
+        "z": "b0209a64c2f538c1",
+        "name": "Receive ANSWER to parse",
+        "info": "",
+        "x": 230,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "19bb50d0b7d3f0ba",
+        "type": "comment",
+        "z": "b0209a64c2f538c1",
+        "name": "Returns parsed ANSWER",
+        "info": "",
+        "x": 1050,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ce97ec527706e419",
+        "type": "switch",
+        "z": "b0209a64c2f538c1",
+        "name": "switch CMD",
+        "property": "msg.payload.CMD",
+        "propertyType": "jsonata",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "STATUS_OUTPUTS",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "STATUS_PARTITIONS",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 220,
+        "wires": [
+            [
+                "b16a69481f1494fd"
+            ],
+            [
+                "0b188df59ae38c1a"
+            ]
+        ]
+    },
+    {
+        "id": "b16a69481f1494fd",
+        "type": "function",
+        "z": "b0209a64c2f538c1",
+        "name": "parse STATUS_OUTPUTS",
+        "func": "const cmd = msg.payload.CMD;\nconst answer = msg.payload.ANSWER.STATUS_OUTPUTS;\n\nconst outputs = [];\n\nanswer.forEach(function(element) {\n    if (element.STA === \"ON\") {\n        outputs.push(element.ID);\n    }\n});\n\nmsg.payload = { \"CMD\": \"STATUS_OUTPUTS\", \"STATUS\": answer, \"ACTIVE_OUTPUTS\": outputs };\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "1e69e7d3d16df422",
+                "415aaa698d0b4fd4"
+            ]
+        ]
+    },
+    {
+        "id": "6882862750d0a43b",
+        "type": "debug",
+        "z": "b0209a64c2f538c1",
+        "name": "answer not parsed",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0b188df59ae38c1a",
+        "type": "function",
+        "z": "b0209a64c2f538c1",
+        "name": "parse STATUS_PARTITIONS",
+        "func": "const cmd = msg.payload.CMD;\nconst answer = msg.payload.ANSWER.STATUS_PARTITIONS;\n\nconst partitions = [];\nconst alarms = [];\n\nanswer.forEach(function(element) {\n    partitions.push({\"ID\": element.ID, \"STATUS\": element.ARM});\n    if (element.ARM !== \"D\") {\n        alarms.push({ \"ID\": element.ID, \"STATUS\": element.ARM });\n    }\n});\n\nmsg.payload = { \"CMD\": \"STATUS_PARTITIONS\", \"STATUS\": answer, \"PARTITIONS\": partitions, \"ALARMS\": alarms };\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 220,
+        "wires": [
+            [
+                "a914de4d5744b0a8",
+                "f1523a837823faf4"
+            ]
+        ]
+    },
+    {
+        "id": "a914de4d5744b0a8",
+        "type": "function",
+        "z": "b0209a64c2f538c1",
+        "name": "function 2",
+        "func": "const alarms = msg.payload.ALARMS;\n\nconst a = alarms.find(a => a.ID === \"1\");\n\nif (a) {\n    msg.payload = \"1\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 340,
+        "wires": [
+            [
+                "ad29cd4217efaf6c"
+            ]
+        ]
+    },
+    {
+        "id": "8c35735193d3d560",
+        "type": "debug",
+        "z": "b0209a64c2f538c1",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "86854406fe56cd55",
+        "type": "change",
+        "z": "b0209a64c2f538c1",
+        "name": "ARM 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"duration_sec\":28800,\"disarm_enabled\":false,\"alarm_in\":0,\"duration_enabled\":false}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 480,
+        "wires": [
+            [
+                "2f8e521da6d0c350"
+            ]
+        ]
+    },
+    {
+        "id": "2f8e521da6d0c350",
+        "type": "http request",
+        "z": "b0209a64c2f538c1",
+        "name": "POST Arm / Disarm",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://192.168.1.103:8443/api/alarm/disarm/",
+        "tls": "ca29702cd1913b05",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "application/json",
+                "valueValue": ""
+            }
+        ],
+        "x": 1070,
+        "y": 520,
+        "wires": [
+            [
+                "002f07d9c9bd96cb"
+            ]
+        ]
+    },
+    {
+        "id": "002f07d9c9bd96cb",
+        "type": "debug",
+        "z": "b0209a64c2f538c1",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "e0c50a27ad196ae6",
+        "type": "change",
+        "z": "b0209a64c2f538c1",
+        "name": "DISARM 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"duration_sec\":28800,\"disarm_enabled\":true,\"alarm_in\":0,\"duration_enabled\":false}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 830,
+        "y": 560,
+        "wires": [
+            [
+                "2f8e521da6d0c350"
+            ]
+        ]
+    },
+    {
+        "id": "ad29cd4217efaf6c",
+        "type": "switch",
+        "z": "b0209a64c2f538c1",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 910,
+        "y": 340,
+        "wires": [
+            [
+                "86854406fe56cd55",
+                "8c35735193d3d560"
+            ]
+        ]
+    },
+    {
+        "id": "f1523a837823faf4",
+        "type": "debug",
+        "z": "b0209a64c2f538c1",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "de048a92930b9564",
+        "type": "comment",
+        "z": "c79f651b11764d0a",
+        "name": "Send CMD to formatting pahse",
+        "info": "",
+        "x": 190,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "394535b8b588a9f4",
+        "type": "inject",
+        "z": "c79f651b11764d0a",
+        "name": "DISARM_Partition",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "e9547afc2168224f"
+            ]
+        ]
+    },
+    {
+        "id": "9f86badfdcd6646f",
+        "type": "inject",
+        "z": "c79f651b11764d0a",
+        "name": "ARM_Partition",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "6af6eb5d81843370"
+            ]
+        ]
+    },
+    {
+        "id": "e9547afc2168224f",
+        "type": "template",
+        "z": "c79f651b11764d0a",
+        "name": "DISARM_PARTITION",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n\t\"SENDER\":\"\",\n\t\"RECEIVER\":\"\",\n\t\"CMD\": \"CMD_USR\",\n\t\"ID\":\"65535\",\n\t\"PAYLOAD_TYPE\":\"CMD_ARM_PARTITION\",\n\t\"PAYLOAD\":{\n\t\t\"ID_LOGIN\":\"1\",\n\t\t\"PIN\":\"000001\",\n\t\t\"PARTITION\":{\n\t\t\t\"ID\":\"1\",\n\t\t\t\"MOD\":\"D\"\n\t\t}\n\t},\n\t\"TIMESTAMP\": \"\",\n\t\"CRC_16\"   : \"0x3FC7\"\n}",
+        "output": "json",
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "e89f00b8a3c93bdb"
+            ]
+        ]
+    },
+    {
+        "id": "6af6eb5d81843370",
+        "type": "template",
+        "z": "c79f651b11764d0a",
+        "name": "ARM_PARTITION",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n\t\"SENDER\":\"\",\n\t\"RECEIVER\":\"\",\n\t\"CMD\": \"CMD_USR\",\n\t\"ID\":\"65535\",\n\t\"PAYLOAD_TYPE\":\"CMD_ARM_PARTITION\",\n\t\"PAYLOAD\":{\n\t\t\"ID_LOGIN\":\"1\",\n\t\t\"PIN\":\"000001\",\n\t\t\"PARTITION\":{\n\t\t\t\"ID\":\"1\",\n\t\t\t\"MOD\":\"I\"\n\t\t}\n\t},\n\t\"TIMESTAMP\": \"\",\n\t\"CRC_16\"   : \"0x3FC7\"\n}",
+        "output": "json",
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "e89f00b8a3c93bdb"
+            ]
+        ]
+    },
+    {
+        "id": "e89f00b8a3c93bdb",
+        "type": "link call",
+        "z": "c79f651b11764d0a",
+        "name": "",
+        "links": [
+            "f54fb54f2cd60876"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 630,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a85f69354cc0685",
+        "type": "function",
+        "z": "059019a627e13ee4",
+        "name": "toUTF8Array",
+        "func": "var utf8 = [];\nconst raw = msg.payload;\n//console.log(raw);\nconst str = JSON.stringify(raw);\nfor (var i = 0; i < str.length; i++) {\n    var charcode = str.charCodeAt(i);\n    if (charcode < 0x80) utf8.push(charcode);\n    else if (charcode < 0x800) {\n        utf8.push(0xc0 | (charcode >> 6),\n            0x80 | (charcode & 0x3f));\n    }\n    else if (charcode < 0xd800 || charcode >= 0xe000) {\n        utf8.push(0xe0 | (charcode >> 12),\n            0x80 | ((charcode >> 6) & 0x3f),\n            0x80 | (charcode & 0x3f));\n    }\n    // surrogate pair\n    else {\n        i++;\n        // UTF-16 encodes 0x10000-0x10FFFF by\n        // subtracting 0x10000 and splitting the\n        // 20 bits of 0x0-0xFFFFF into two halves\n        charcode = 0x10000 + (((charcode & 0x3ff) << 10)\n            | (str.charCodeAt(i) & 0x3ff))\n        utf8.push(0xf0 | (charcode >> 18),\n            0x80 | ((charcode >> 12) & 0x3f),\n            0x80 | ((charcode >> 6) & 0x3f),\n            0x80 | (charcode & 0x3f));\n    }\n}\n\nmsg.payload = { raw, utf8 };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "f1b50d2554990824"
+            ]
+        ]
+    },
+    {
+        "id": "e183cb136e51567b",
+        "type": "function",
+        "z": "059019a627e13ee4",
+        "name": "getUtcTimestamp",
+        "func": "var action = msg.payload;\n//console.log(action);\nvar now = new Date;\nconst timestamp = \"\" + (Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),\n    now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds())) / 1000;\n\naction.TIMESTAMP = timestamp;\nmsg.payload = action;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 160,
+        "wires": [
+            [
+                "8a85f69354cc0685"
+            ]
+        ]
+    },
+    {
+        "id": "4f769b769057c273",
+        "type": "function",
+        "z": "059019a627e13ee4",
+        "name": "insertSR",
+        "func": "var action = msg.payload;\naction.SENDER = \"7C5452FB-079D-48AF-82D8-AD01F98AD3DD-l4\";\naction.RECEIVER = \"A4580F9000F0\";\nmsg.payload = action;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "e183cb136e51567b"
+            ]
+        ]
+    },
+    {
+        "id": "f1b50d2554990824",
+        "type": "function",
+        "z": "059019a627e13ee4",
+        "name": "calcCRC_16",
+        "func": "const raw = msg.payload.raw;\nconst str = JSON.stringify(raw);\nconst utf8 = msg.payload.utf8;\nvar SEME_CRC_16_JSON = (0xFFFF) // seme per calcolo del CRC\nvar GEN_POLY_JSON = (0x1021)    // polinomio (x^16+x^12+x^5+1)\nvar i_CRC;\nvar flag_CRC;\nvar crc;\nvar charCode;\nvar CRC_16 = \"\\\"CRC_16\\\"\";\nvar dataLen = str.lastIndexOf(CRC_16) + CRC_16.length + (utf8.length - str.length);\ncrc = SEME_CRC_16_JSON;\nfor (var i = 0; dataLen; i++, dataLen--) {\n    charCode = utf8[i];\n    for (i_CRC = 0x80; i_CRC; i_CRC >>= 1) {\n        flag_CRC = (crc & 0x8000) ? (1) : (0);\n        crc <<= 1;\n        crc = (crc & 0xFFFF);\n        if (charCode & i_CRC) { crc++; }\n        if (flag_CRC) { crc ^= GEN_POLY_JSON; }\n    }\n}\n//var result = (\"0000\" + crc.toString()).slice(-4);\n//var result = crc.toString(16);\nvar result = crc.toString(16).padStart(4, '0');\nthis.CRC_16 = \"0x\" + result;\n\nconst res = (\"0x\" + result);\n//msg.payload = { str, utf8, \"CRC_16\": res };\n\nraw.CRC_16 = res;\nmsg.payload = raw;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 160,
+        "wires": [
+            [
+                "daecd1c94eee85f3",
+                "ee8f71301bdf10e9"
+            ]
+        ]
+    },
+    {
+        "id": "daecd1c94eee85f3",
+        "type": "debug",
+        "z": "059019a627e13ee4",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f54fb54f2cd60876",
+        "type": "link in",
+        "z": "059019a627e13ee4",
+        "name": "fomratCMD",
+        "links": [],
+        "x": 55,
+        "y": 160,
+        "wires": [
+            [
+                "4f769b769057c273",
+                "7c90faa9578edca9"
+            ]
+        ]
+    },
+    {
+        "id": "ee8f71301bdf10e9",
+        "type": "link out",
+        "z": "059019a627e13ee4",
+        "name": "formattedCMD",
+        "mode": "link",
+        "links": [
+            "05e8d55b2e0f471f"
+        ],
+        "x": 785,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ec673086fe80dfc2",
+        "type": "comment",
+        "z": "059019a627e13ee4",
+        "name": "Receive CMD to format",
+        "info": "",
+        "x": 140,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "47127af939433d8c",
+        "type": "comment",
+        "z": "059019a627e13ee4",
+        "name": "Returns formatted CMD",
+        "info": "",
+        "x": 700,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "7c90faa9578edca9",
+        "type": "function",
+        "z": "059019a627e13ee4",
+        "name": "Save Last CMD",
+        "func": "const cmd = msg.payload;\n\nmsg.payload = { CMD: cmd.PAYLOAD_TYPE, CMD_DETAIL: cmd.PAYLOAD };\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "180df7406296d056"
+            ]
+        ]
+    },
+    {
+        "id": "180df7406296d056",
+        "type": "persistent value",
+        "z": "059019a627e13ee4",
+        "name": "",
+        "valuesConfig": "8802f632f2c283ca",
+        "valuesConfigName": "KWS_last_CMD",
+        "valueId": "9d14cc30-e91e-11ed-ade6-4b6b5e767ece",
+        "value": "lastCMD",
+        "command": "write",
+        "msgProperty": "payload",
+        "dynamicControl": false,
+        "dynamicCommandMsgProperty": "",
+        "dynamicValueMsgProperty": "",
+        "deepCloneValue": false,
+        "outputPreviousValue": false,
+        "outputPreviousValueMsgProperty": "previous_value",
+        "collectValues": false,
+        "collectValuesMsgProperty": "payload",
+        "blockIfEnable": false,
+        "blockIfRule": "eq",
+        "blockIfCompareValue": "",
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [],
+            []
+        ]
+    }
+]
